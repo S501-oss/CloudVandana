@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .slidercontainer {
+        max-width: 800px;
+        margin: 50px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .sliderimage {
+        width: 600px;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      .arrowbtn {
+        width: 50px;
+        height: 50px;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        background-color: white; 
+      }
+
+      .arrowbtn img {
+        width: 20px; 
+        height: 20px;
+        object-fit: contain;
+        filter: brightness(0) saturate(100%) invert(14%) sepia(96%)
+          saturate(5265%) hue-rotate(200deg) brightness(95%) contrast(101%);
+        transition: transform 0.2s ease;
+      }
+
+      .arrowbtn:hover img {
+        transform: scale(1.2);
+      }
+
+      .arrowbtn:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
+      }
+
+      .arrowbtn:disabled img {
+        filter: brightness(0) invert(0);
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slidercontainer">
+      <button id="prevBtn" class="arrowbtn">
+        <img src="./images/lefticon.png" alt="Previous" />
+      </button>
+      <img class="sliderimage" src="" alt="Slider Image" />
+      <button id="nextBtn" class="arrowbtn">
+
+        <img src="./images/right-arrow.png" alt="Next" />
+      </button>
+    </div>
+
+    <script>
+      const images = [
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+        "https://images.pexels.com/photos/9454915/pexels-photo-9454915.jpeg?cs=srgb&dl=pexels-mo-eid-1268975-9454915.jpg&fm=jpg",
+        "https://images.unsplash.com/photo-1559583985-c80d8ad9b29f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXwxMDY1OTc2fHxlbnwwfHx8fHw%3D",
+        "https://images.pexels.com/photos/2486168/pexels-photo-2486168.jpeg",
+        "https://m.media-amazon.com/images/I/71a37QykgSL._AC_UF1000,1000_QL80_.jpg",
+      ];
+
+      const sliderImage = document.querySelector(".sliderimage");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+
+      let currentIndex = 0;
+
+      function updateSlider() {
+        sliderImage.src = images[currentIndex];
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === images.length - 1;
+      }
+
+      nextBtn.addEventListener("click", () => {
+        if (currentIndex < images.length - 1) {
+          currentIndex++;
+          updateSlider();
+        }
+      });
+
+      prevBtn.addEventListener("click", () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateSlider();
+        }
+      });
+
+      updateSlider();
+    </script>
+  </body>
+</html>

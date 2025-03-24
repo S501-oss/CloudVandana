@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Card</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f0f2f5;
+        padding: 10px;
+      }
+
+      .profile-card {
+        position: relative;
+        width: 100%;
+        max-width: 320px; /* Default for smaller screens */
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .profile-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .profile-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%; /* Circular by default */
+        margin: 0 auto 20px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fff; /* Matches card background for transparency */
+      }
+
+      .profile-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .profile-info {
+        text-align: center;
+      }
+
+      .name {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 5px;
+      }
+
+      .designation {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .bio {
+        font-size: 14px;
+        color: #777;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .social-links img {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      .social-links img:hover {
+        transform: scale(1.2);
+      }
+
+      /* Desktop Layout (min-width: 901px) */
+      @media (min-width: 901px) {
+        .profile-card {
+          max-width: 600px;
+          display: flex;
+          align-items: center;
+          padding: 30px;
+        }
+
+        .profile-img {
+          margin: 0 20px 0 0;
+          flex-shrink: 0;
+          width: 150px;
+          height: 150px;
+          border-radius: 0; /* Box shape (square) for desktop */
+        }
+
+        .profile-info {
+          text-align: left;
+          flex-grow: 1;
+        }
+
+        .social-links {
+          justify-content: flex-start;
+        }
+      }
+
+      /* Tablet Layout (601px - 900px) */
+      @media (min-width: 601px) and (max-width: 900px) {
+        .profile-card {
+          max-width: 400px;
+        }
+
+        .profile-img {
+          width: 140px;
+          height: 140px;
+        }
+
+        .name {
+          font-size: 26px;
+        }
+
+        .designation {
+          font-size: 18px;
+        }
+
+        .bio {
+          font-size: 15px;
+        }
+
+        .social-links img {
+          width: 28px;
+          height: 28px;
+        }
+      }
+
+      /* Medium Screens (max-width: 600px) */
+      @media (max-width: 600px) {
+        .profile-card {
+          padding: 15px;
+        }
+
+        .profile-img {
+          width: 100px;
+          height: 100px;
+        }
+
+        .name {
+          font-size: 20px;
+        }
+
+        .designation {
+          font-size: 14px;
+        }
+
+        .bio {
+          font-size: 12px;
+        }
+
+        .social-links img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      /* Small Screens (max-width: 400px) */
+      @media (max-width: 400px) {
+        .profile-card {
+          padding: 10px;
+        }
+
+        .profile-img {
+          width: 80px;
+          height: 80px;
+        }
+
+        .name {
+          font-size: 18px;
+        }
+
+        .designation {
+          font-size: 12px;
+        }
+
+        .bio {
+          font-size: 11px;
+          line-height: 1.4;
+        }
+
+        .social-links {
+          gap: 10px;
+        }
+
+        .social-links img {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="profile-card">
+      <div class="profile-img">
+        <img src="./shaikSharief-removebg-preview.png" alt="Profile Picture" />
+      </div>
+      <div class="profile-info">
+        <h2 class="name">Shaik Khasim Sharief</h2>
+        <p class="designation">Web Developer</p>
+        <p class="bio">
+          Passionate about creating beautiful and functional websites. Coffee
+          enthusiast and lifelong learner.
+        </p>
+        <div class="social-links">
+          <img src="./images/linkedIn.png" alt="LinkedIn" />
+          <img src="./images/twitter.png" alt="Twitter" />
+          <img src="./images/facebook.png" alt="facebook" />
+          <img src="./images/instagram.png" alt="Instagram" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
